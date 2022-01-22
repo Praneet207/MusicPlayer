@@ -1,6 +1,6 @@
 """
 Music Player, Telegram Voice Chat Bot
-Copyright (c) 2021  Asm Safone <https://github.com/AsmSafone>
+Copyright (c) 2021-present Asm Safone <https://github.com/AsmSafone>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -36,13 +36,16 @@ def set_default(chat_id: int) -> None:
     GROUPS[chat_id] = {}
     GROUPS[chat_id]["is_playing"] = False
     GROUPS[chat_id]["now_playing"] = None
-    GROUPS[chat_id]["is_video"] = False
+    GROUPS[chat_id]["stream_mode"] = config.STREAM_MODE
+    GROUPS[chat_id]["admins_only"] = config.ADMINS_ONLY
     GROUPS[chat_id]["loop"] = False
     GROUPS[chat_id]["lang"] = config.LANGUAGE
     GROUPS[chat_id]["queue"] = Queue()
 
 
 def get_group(chat_id) -> Dict[str, Any]:
+    if chat_id not in all_groups():
+        set_default(chat_id)
     return GROUPS[chat_id]
 
 

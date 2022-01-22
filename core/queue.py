@@ -1,6 +1,6 @@
 """
 Music Player, Telegram Voice Chat Bot
-Copyright (c) 2021  Asm Safone <https://github.com/AsmSafone>
+Copyright (c) 2021-present Asm Safone <https://github.com/AsmSafone>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -58,7 +58,7 @@ class Queue(asyncio.Queue):
         string = ""
         for x, item in enumerate(queue):
             if x < 10:
-                string += f"**{x+1}. [{item.title}]({item.yt_url})** \n- Requested By: {item.requested_by.mention}\n"
+                string += f"**{x+1}. [{item.title}]({item.source})** \n- Requested By: {item.requested_by.mention if item.requested_by else item.request_msg.sender_chat.title}\n"
             else:
                 string += f"`\n...{len(queue)-10}`"
                 return string

@@ -1,8 +1,7 @@
 {
     "name": "Music Player",
     "description": "A Telegram Music Bot written in Python using Pyrogram and Py-Tgcalls",
-    "repository": "https://github.com/AsmSafone/MusicPlayer",
-    "logo": "https://github.com/AsmSafone/MusicPlayer/raw/main/theme/logo.png",
+    "logo": "https://github.com/AsmSafone/MusicPlayer/raw/master/theme/logo.png",
     "stack": "container",
     "keywords": [
       "telegram",
@@ -23,6 +22,10 @@
       "API_HASH": {
         "description": "Telegram app hash, get it from https://my.telegram.org/apps",
         "required": true
+      },
+      "BOT_TOKEN": {
+        "description": "Your telegram bot token, get it from https://t.me/botfather",
+        "required": false
       },
       "SESSION": {
         "description": "Pyrogram session string, get it from https://replit.com/@AsmSafone/genStr",
@@ -46,6 +49,24 @@
         "description": "An available stream quality (read the README.md for more info)",
         "value": "high",
         "required": false
+      },
+      "STREAM_MODE": {
+        "description": "An stream mode like audio or video (read the README.md for more info)",
+        "value": "audio",
+        "required": false
+      },
+      "ADMIN_ONLY": {
+        "description": "Change it to 'True' if you want to make /play commands only for admins",
+        "value": "False",
+        "required": false
+      },
+      "SPOTIFY_CLIENT_ID": {
+          "description": "Spotify client id get it from https://developer.spotify.com/dashboard/applications",
+          "required": false
+      },
+      "SPOTIFY_CLIENT_SECRET": {
+          "description": "Spotify client secret get it from https://developer.spotify.com/dashboard/applications",
+          "required": false
       }
     },
     "formation": {
